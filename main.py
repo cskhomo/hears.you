@@ -2,13 +2,12 @@ from sys import argv
 from sys import exit
 
 from PyQt6.QtWidgets import QMainWindow
+from PyQt6.QtWidgets import QToolBar
 from PyQt6.QtWidgets import QTextEdit
 from PyQt6.QtGui import QAction
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QApplication
 
-
-from PyQt6.QtWidgets import QToolBar
 
 
 class MainWindow(QMainWindow):
@@ -21,9 +20,11 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Hears")
         self.setGeometry(100, 100, 600, 600)
         
+        menu = self.menuBar()
+        tools = QToolBar("Toolbar")
+        self.addToolBar(tools)
         self.text_edit = QTextEdit(self)
         self.setCentralWidget(self.text_edit)
-        menu = self.menuBar()
 
         file_menu = menu.addMenu("&File")
 
@@ -61,11 +62,13 @@ class MainWindow(QMainWindow):
         undo_action.setShortcut("CTRL+Z")
         undo_action.triggered.connect(self.text_edit.undo)
         edit_menu.addAction(undo_action)
+        tools.addAction(undo_action)
 
         redo_action = QAction(QIcon("./assets/icons/menu/redo.png"),"Redo", self)
         redo_action.setShortcut("CTRL+Y")
         redo_action.triggered.connect(self.text_edit.redo)
         edit_menu.addAction(redo_action)
+        tools.addAction(redo_action)
 
         edit_menu.addSeparator()
 
