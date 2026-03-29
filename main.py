@@ -43,13 +43,22 @@ class MainWindow(QMainWindow):
         redo_action.triggered.connect(self.text_edit.redo)
         edit_menu.addAction(redo_action)
 
+        edit_menu.addSeparator()
 
-        # edit_menu.addAction("Cut")
-        # edit_menu.addAction("Copy")
-        # edit_menu.addAction("Paste")
-        # edit_menu.addAction("Delete")
+        cut_action = QAction("Cut", self)
+        cut_action.setShortcut("CTRL+X")
+        cut_action.triggered.connect(self.text_edit.cut)
+        edit_menu.addAction(cut_action)
 
+        copy_action = QAction("Copy", self)
+        copy_action.setShortcut("CTRL+C")
+        copy_action.triggered.connect(self.text_edit.copy)
+        edit_menu.addAction(copy_action)
 
+        paste_action = QAction("Paste", self)
+        paste_action.setShortcut("CTRL+V")
+        paste_action.triggered.connect(self.text_edit.paste)
+        edit_menu.addAction(paste_action)
 
         self.show()
     
