@@ -4,6 +4,7 @@ from sys import exit
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtWidgets import QToolBar
 from PyQt6.QtWidgets import QTextEdit
+from PyQt6.QtWidgets import QStatusBar
 from PyQt6.QtGui import QAction
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QApplication
@@ -19,12 +20,16 @@ class MainWindow(QMainWindow):
         
         self.setWindowTitle("Hears")
         self.setGeometry(100, 100, 600, 600)
-        
+        self.setMinimumWidth(600)
+        self.setMinimumHeight(600)
+  
         menu = self.menuBar()
-        tools = QToolBar("Toolbar")
+        tools = QToolBar()
         self.addToolBar(tools)
         self.text_edit = QTextEdit(self)
         self.setCentralWidget(self.text_edit)
+        self.status = QStatusBar()
+        self.setStatusBar(self.status)
 
         file_menu = menu.addMenu("&File")
 
@@ -91,15 +96,18 @@ class MainWindow(QMainWindow):
     
     def new(self):
         self.text_edit.clear()
+        self.status.showMessage("File Created")
 
     def open(self):
         self.text_edit.clear()
+        self.status.showMessage("File Opened")
 
     def save(self):
-        ...  
+        self.status.showMessage("File Saved")
     
     def close(self):
         self.text_edit.clear()
+        self.status.showMessage("File Closed")
 
     def quit(self):
         self.destroy()
