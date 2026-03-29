@@ -1,22 +1,19 @@
-from sys import argv
-from sys import exit
+import sys
 
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtWidgets import QTextEdit
-
-
-from PyQt6.QtWidgets import QToolBar
+from PyQt6.QtGui import QAction
 from PyQt6.QtWidgets import QApplication
 
 
+from PyQt6.QtWidgets import QToolBar
 from PyQt6.QtGui import QIcon
-from PyQt6.QtGui import QAction
 
 
 class MainWindow(QMainWindow):
     
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self):
+        super().__init__()
         
         self.setWindowTitle("Hears")
         self.setGeometry(100, 100, 600, 600)
@@ -26,12 +23,26 @@ class MainWindow(QMainWindow):
         menu = self.menuBar()
 
         file_menu = menu.addMenu("&File")
-        edit_menu = menu.addMenu("&Edit")
+
+        new_action = QAction("New", self)
+        new_action.setShortcut("CTRL+N")
+        new_action.triggered.connect(self.new)
+        file_menu.addAction(new_action)
+
+        save_action = QAction("Save", self)
+        save_action.setShortcut("CTRL+S")
+        save_action.triggered.connect(self.save)
+        file_menu.addAction(save_action)
+
+        file_menu.addSeparator()
         
-        file_menu.addAction("New")
-        file_menu.addAction("Open")
-        file_menu.addAction("Save")
-        file_menu.addAction("Exit", self.destroy)
+        quit_action = QAction("Quit", self)
+        quit_action.setShortcut("CTRL+Q")
+        quit_action.triggered.connect(self.quit)
+        file_menu.addAction(quit_action)
+
+
+        edit_menu = menu.addMenu("&Edit")
 
         undo_action = QAction("Undo", self)
         undo_action.setShortcut("CTRL+Z")
@@ -62,9 +73,18 @@ class MainWindow(QMainWindow):
 
         self.show()
     
+    def new(self):
+        ...
+
+    def save(self):
+        ...  
+
+    def quit(self):
+        self.destroy()  
+     
     
 if __name__ == "__main__":
     
-    app = QApplication(argv)
+    app = QApplication(sys.argv)
     window = MainWindow()
-    exit(app.exec())
+    sys.exit(app.exec())
