@@ -29,12 +29,22 @@ class MainWindow(QMainWindow):
         new_action.triggered.connect(self.new)
         file_menu.addAction(new_action)
 
+        open_action = QAction("Open", self)
+        open_action.setShortcut("CTRL+O")
+        open_action.triggered.connect(self.open)
+        file_menu.addAction(open_action)
+
         save_action = QAction("Save", self)
         save_action.setShortcut("CTRL+S")
         save_action.triggered.connect(self.save)
         file_menu.addAction(save_action)
 
         file_menu.addSeparator()
+
+        close_action = QAction("Close", self)
+        close_action.setShortcut("CTRL+W")
+        close_action.triggered.connect(self.close)
+        file_menu.addAction(close_action)
         
         quit_action = QAction("Quit", self)
         quit_action.setShortcut("CTRL+Q")
@@ -74,10 +84,16 @@ class MainWindow(QMainWindow):
         self.show()
     
     def new(self):
-        ...
+        self.text_edit.clear()
+
+    def open(self):
+        self.text_edit.clear()
 
     def save(self):
         ...  
+    
+    def close(self):
+        self.text_edit.clear()
 
     def quit(self):
         self.destroy()  
