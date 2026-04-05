@@ -32,3 +32,8 @@ class Window(QMainWindow):
     def setup_canvas(self):
         self.canvas = Canvas(self)
         self.setCentralWidget(self.canvas)
+
+
+
+
+        

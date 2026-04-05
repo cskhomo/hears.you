@@ -16,7 +16,7 @@ class RedoAction(Action):
         super().__init__(name, shortcut, window)
         self.triggered.connect(self.redo)
         
-    def undo(self):
+    def redo(self):
         self.window.canvas.redo()
         
 
@@ -26,7 +26,7 @@ class CutAction(Action):
         super().__init__(name, shortcut, window)
         self.triggered.connect(self.cut)
         
-    def undo(self):
+    def cut(self):
         self.window.canvas.cut()
         
         
@@ -36,7 +36,7 @@ class CopyAction(Action):
         super().__init__(name, shortcut, window)
         self.triggered.connect(self.copy)
         
-    def undo(self):
+    def copy(self):
         self.window.canvas.copy()
         
         
@@ -46,5 +46,5 @@ class PasteAction(Action):
         super().__init__(name, shortcut, window)
         self.triggered.connect(self.paste)
         
-    def undo(self):
+    def paste(self):
         self.window.canvas.paste()

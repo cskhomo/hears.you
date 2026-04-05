@@ -26,11 +26,11 @@ class Menu:
     
     def setEditActions(self):
         
-        self.undo = NewAction("Undo", "CTRL+Z", self.window)
-        self.redo = NewAction("Redo", "CTRL+Y", self.window)
-        self.cut = NewAction("Cut", "CTRL+X", self.window)
-        self.copy = NewAction("Copy", "CTRL+C", self.window)
-        self.paste = NewAction("Paste", "CTRL+V", self.window)
+        self.undo = UndoAction("Undo", "CTRL+Z", self.window)
+        self.redo = RedoAction("Redo", "CTRL+Y", self.window)
+        self.cut = CutAction("Cut", "CTRL+X", self.window)
+        self.copy = CopyAction("Copy", "CTRL+C", self.window)
+        self.paste = PasteAction("Paste", "CTRL+V", self.window)
     
    
     def setFileMenu(self, main_menu):
