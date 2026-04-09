@@ -21,17 +21,6 @@ if __name__ == "__main__":
         # self.status = QStatusBar()
         # self.setStatusBar(self.status)
 
-        # QIcon("./assets/icons/menu/new.png")
-        # QIcon("./assets/icons/menu/open.png")
-        # QIcon("./assets/icons/menu/save.png")
-        # QIcon("./assets/icons/menu/close.png")
-        # QIcon("./assets/icons/menu/quit.png")
-        # QIcon("./assets/icons/menu/redo.png")
-        # (QIcon("./assets/icons/menu/cut.png")
-        # QIcon("./assets/icons/menu/copy.png")
-        # QIcon("./assets/icons/menu/paste.png")
-
-
         # self.status.showMessage("File Created")
         # self.status.showMessage("File Opened")
         # self.status.showMessage("File Saved")

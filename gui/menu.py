@@ -111,8 +111,8 @@ class Menu:
 
     def setTextActions(self):
         
-        self.font = FontAction("Font", self.window)
-        self.size = SizeAction("Size", self.window)
+        self.font = FontAction("Font Selection", self.window)
+        self.size = SizeAction("Font Size", self.window)
         self.bold = BoldAction("Bold", self.window, "CTRL+B")
         self.italic = ItalicAction("Italic", self.window, "CTRL+I")
         self.underline = UnderlineAction("Underline", self.window, "CTRL+U")

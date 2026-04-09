@@ -1,4 +1,5 @@
 from PyQt6.QtGui import QAction
+from PyQt6.QtGui import QIcon
 
 class Action(QAction):
     
@@ -7,3 +8,8 @@ class Action(QAction):
         
         self.window = window
         if shortcut: self.setShortcut(shortcut)
+
+        try:
+            self.setIcon(QIcon(f"./assets/icons/menu/{name.lower()}.png"))
+        except:
+            pass
