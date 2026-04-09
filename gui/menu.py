@@ -6,16 +6,77 @@ class Menu:
     def __init__(self, window):
         self.menuBar = window.menuBar()
         self.window = window
-        
-    def setActions(self):
-        self.setFileActions()
-        self.setEditActions()
-    
+
+
     def setMenu(self):
+
         main_menu = self.menuBar
+
         self.setFileMenu(main_menu)
         self.setEditMenu(main_menu)
+        self.setViewMenu(main_menu)
+        self.setTextMenu(main_menu)
+        self.setAlignMenu(main_menu)
+
+
+    def setActions(self):
+
+        self.setFileActions()
+        self.setEditActions()
+        self.setViewActions()
+        self.setTextActions()
+        self.setAlignActions()
+
+
+    def setFileMenu(self, main_menu):
+        
+        file_menu = main_menu.addMenu("&File")
+
+        self.addActions(file_menu, [self.new, self.open])
+        file_menu.addSeparator()
+
+        self.addActions(file_menu, [self.save, self.save_as, self.export])
+        file_menu.addSeparator()
+
+        self.addActions(file_menu, [self.close, self.quit])
+
+
+    def setEditMenu(self, main_menu):
+        
+        edit_menu = main_menu.addMenu("&Edit")
+
+        self.addActions(edit_menu, [self.undo, self.redo])
+        edit_menu.addSeparator()
+
+        self.addActions(edit_menu, [self.cut, self.copy, self.paste])
     
+
+    def setViewMenu(self, main_menu):
+
+        view_menu = main_menu.addMenu("&View")
+
+        self.addActions(view_menu, [self.zoom_in, self.zoom_out, self.restore_zoom])
+        view_menu.addSeparator()
+
+        self.addActions(view_menu, [self.toggle_tools, self.toggle_status])
+    
+
+    def setTextMenu(self, main_menu):
+
+        text_menu = main_menu.addMenu("&Text")
+
+        self.addActions(text_menu, [self.font, self.size])
+        text_menu.addSeparator()
+
+        self.addActions(text_menu, [self.bold, self.italic, self.underline])
+
+
+    def setAlignMenu(self, main_menu):
+
+        align_menu = main_menu.addMenu("&Align")
+        self.addActions(align_menu, [self.align_left, self.align_right, self.align_center])
+
+
     def setFileActions(self):
         
         self.new = NewAction("New", "CTRL+N", self.window)
@@ -23,7 +84,8 @@ class Menu:
         self.save = SaveAction("Save", "CTRL+S", self.window)
         self.close = CloseAction("Close", "CTRL+W", self.window)
         self.quit = QuitAction("Quit", "CTRL+Q", self.window)
-    
+
+
     def setEditActions(self):
         
         self.undo = UndoAction("Undo", "CTRL+Z", self.window)
@@ -31,22 +93,8 @@ class Menu:
         self.cut = CutAction("Cut", "CTRL+X", self.window)
         self.copy = CopyAction("Copy", "CTRL+C", self.window)
         self.paste = PasteAction("Paste", "CTRL+V", self.window)
-    
-   
-    def setFileMenu(self, main_menu):
-        
-        file_menu = main_menu.addMenu("&File")
-        self.addActions(file_menu, [self.new, self.open, self.save])
-        file_menu.addSeparator()
-        self.addActions(file_menu, [self.close, self.quit])
-    
-    def setEditMenu(self, main_menu):
-        
-        edit_menu = main_menu.addMenu("&Edit")
-        self.addActions(edit_menu, [self.undo, self.redo])
-        edit_menu.addSeparator()
-        self.addActions(edit_menu, [self.cut, self.copy, self.paste])
-    
+
+
     def addActions(self, menu, actions):
         for action in actions:
             menu.addAction(action)
