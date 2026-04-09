@@ -12,31 +12,20 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-# from PyQt6.QtWidgets import QToolBar
 # from PyQt6.QtWidgets import QStatusBar
-# from PyQt6.QtGui import QIcon
 
 
 	# #icons file location
-    
-        # tools = QToolBar()
-        # self.addToolBar(tools)
+
+
         # self.status = QStatusBar()
         # self.setStatusBar(self.status)
-
 
         # QIcon("./assets/icons/menu/new.png")
         # QIcon("./assets/icons/menu/open.png")
         # QIcon("./assets/icons/menu/save.png")
         # QIcon("./assets/icons/menu/close.png")
         # QIcon("./assets/icons/menu/quit.png")
-   
-   
-        # tools.addAction(undo_action)
-        # tools.addAction(redo_action)
-
-
         # QIcon("./assets/icons/menu/redo.png")
         # (QIcon("./assets/icons/menu/cut.png")
         # QIcon("./assets/icons/menu/copy.png")

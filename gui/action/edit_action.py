@@ -2,8 +2,8 @@ from action.action import Action
 
 class UndoAction(Action):
     
-    def __init__(self, name, shortcut, window):
-        super().__init__(name, shortcut, window)
+    def __init__(self, name, window, shortcut):
+        super().__init__(name, window, shortcut)
         self.triggered.connect(self.undo)
         
     def undo(self):
@@ -12,8 +12,8 @@ class UndoAction(Action):
 
 class RedoAction(Action):
     
-    def __init__(self, name, shortcut, window):
-        super().__init__(name, shortcut, window)
+    def __init__(self, name, window, shortcut):
+        super().__init__(name, window, shortcut)
         self.triggered.connect(self.redo)
         
     def redo(self):
@@ -22,8 +22,8 @@ class RedoAction(Action):
 
 class CutAction(Action):
     
-    def __init__(self, name, shortcut, window):
-        super().__init__(name, shortcut, window)
+    def __init__(self, name, window, shortcut):
+        super().__init__(name, window, shortcut)
         self.triggered.connect(self.cut)
         
     def cut(self):
@@ -32,8 +32,8 @@ class CutAction(Action):
         
 class CopyAction(Action):
     
-    def __init__(self, name, shortcut, window):
-        super().__init__(name, shortcut, window)
+    def __init__(self, name, window, shortcut):
+        super().__init__(name, window, shortcut)
         self.triggered.connect(self.copy)
         
     def copy(self):
@@ -42,8 +42,8 @@ class CopyAction(Action):
         
 class PasteAction(Action):
     
-    def __init__(self, name, shortcut, window):
-        super().__init__(name, shortcut, window)
+    def __init__(self, name, window, shortcut):
+        super().__init__(name, window, shortcut)
         self.triggered.connect(self.paste)
         
     def paste(self):

@@ -1,5 +1,8 @@
 from action.file_action import *
 from action.edit_action import *
+from action.view_action import *
+from action.text_action import *
+from action.align_action import *
 
 class Menu:
     
@@ -79,56 +82,47 @@ class Menu:
 
     def setFileActions(self):
         
-        self.new = NewAction("New", "CTRL+N", self.window)
-        self.open = OpenAction("Open", "CTRL+O", self.window)
-        self.save = SaveAction("Save", "CTRL+S", self.window)
-        self.save_as = SaveAsAction("Save As", "CTRL+SHIFT+S", self.window)
-        self.export = ExportAction("Export", "CTRL+E", self.window)
-        self.close = CloseAction("Close", "CTRL+W", self.window)
-        self.quit = QuitAction("Quit", "CTRL+Q", self.window)
+        self.new = NewAction("New", self.window, "CTRL+N")
+        self.open = OpenAction("Open", self.window, "CTRL+O")
+        self.save = SaveAction("Save", self.window, "CTRL+S")
+        self.save_as = SaveAsAction("Save As", self.window, "CTRL+SHIFT+S")
+        self.export = ExportAction("Export", self.window, "CTRL+E")
+        self.close = CloseAction("Close", self.window, "CTRL+W")
+        self.quit = QuitAction("Quit", self.window, "CTRL+Q")
 
 
     def setEditActions(self):
         
-        self.undo = UndoAction("Undo", "CTRL+Z", self.window)
-        self.redo = RedoAction("Redo", "CTRL+Y", self.window)
-        self.cut = CutAction("Cut", "CTRL+X", self.window)
-        self.copy = CopyAction("Copy", "CTRL+C", self.window)
-        self.paste = PasteAction("Paste", "CTRL+V", self.window)
-    
-
-    def setEditActions(self):
-        
-        self.undo = UndoAction("Undo", "CTRL+Z", self.window)
-        self.redo = RedoAction("Redo", "CTRL+Y", self.window)
-        self.cut = CutAction("Cut", "CTRL+X", self.window)
-        self.copy = CopyAction("Copy", "CTRL+C", self.window)
-        self.paste = PasteAction("Paste", "CTRL+V", self.window)
+        self.undo = UndoAction("Undo", self.window, "CTRL+Z")
+        self.redo = RedoAction("Redo", self.window, "CTRL+Y")
+        self.cut = CutAction("Cut", self.window, "CTRL+X")
+        self.copy = CopyAction("Copy", self.window, "CTRL+C")
+        self.paste = PasteAction("Paste", self.window, "CTRL+V")
     
 
     def setViewActions(self):
         
-        self.undo = ZoomInAction("Zoom In", "CTRL+=", self.window)
-        self.redo = ZoomOutAction("Zoom Out", "CTRL+-", self.window)
-        self.cut = ZoomRestoreAction("Restore Zoom", "CTRL+0", self.window)
-        self.copy = ToolsAction("Show Toolbar", self.window)
-        self.paste = StatusAction("Show Status Bar", self.window)
+        self.zoom_in = ZoomInAction("Zoom In", self.window, "CTRL+=")
+        self.zoom_out = ZoomOutAction("Zoom Out", self.window, "CTRL+-")
+        self.restore_zoom = ZoomRestoreAction("Restore Zoom", self.window, "CTRL+0")
+        self.toggle_tools = ToolsAction("Show Toolbar", self.window)
+        self.toggle_status = StatusAction("Show Status Bar", self.window)
 
 
     def setTextActions(self):
         
         self.font = FontAction("Font", self.window)
         self.size = SizeAction("Size", self.window)
-        self.bold = BoldAction("Bold", "CTRL+B", self.window)
-        self.italic = ItalicAction("Italic", "CTRL+I", self.window)
-        self.underline = UnderlineAction("Underline", "CTRL+U", self.window)
+        self.bold = BoldAction("Bold", self.window, "CTRL+B")
+        self.italic = ItalicAction("Italic", self.window, "CTRL+I")
+        self.underline = UnderlineAction("Underline", self.window, "CTRL+U")
 
     
-    def setTextActions(self):
+    def setAlignActions(self):
         
-        self.left = LeftAction("Left", "CTRL+SHIFT+L", self.window)
-        self.center = CenterAction("Center", "CTRL+SHIFT+E", self.window)
-        self.right = RightAction("Right", "CTRL+SHIFT+R", self.window)
+        self.align_left = LeftAction("Left", self.window, "CTRL+SHIFT+L")
+        self.align_center = CenterAction("Center", self.window, "CTRL+SHIFT+E")
+        self.align_right = RightAction("Right", self.window, "CTRL+SHIFT+R")
 
 
     def addActions(self, menu, actions):

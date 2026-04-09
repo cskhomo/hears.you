@@ -1,6 +1,9 @@
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtCore import QPoint
+from PyQt6.QtWidgets import QToolBar
+
 from menu import Menu
+from tools import Tools
 from canvas import Canvas
 
 POSITION = QPoint(100, 100)
@@ -15,6 +18,7 @@ class Window(QMainWindow):
         
         self.setup_window()
         self.setup_menu()
+        self.setup_tools()
         self.setup_canvas()
         
         self.show()
@@ -28,12 +32,11 @@ class Window(QMainWindow):
        self.menu = Menu(self)
        self.menu.setActions()
        self.menu.setMenu()
+
+    def setup_tools(self):
+        self.tools = Tools(self)
+        self.tools.setTools()
     
     def setup_canvas(self):
         self.canvas = Canvas(self)
         self.setCentralWidget(self.canvas)
-
-
-
-
-        
