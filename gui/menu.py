@@ -82,6 +82,8 @@ class Menu:
         self.new = NewAction("New", "CTRL+N", self.window)
         self.open = OpenAction("Open", "CTRL+O", self.window)
         self.save = SaveAction("Save", "CTRL+S", self.window)
+        self.save_as = SaveAsAction("Save As", "CTRL+SHIFT+S", self.window)
+        self.export = ExportAction("Export", "CTRL+E", self.window)
         self.close = CloseAction("Close", "CTRL+W", self.window)
         self.quit = QuitAction("Quit", "CTRL+Q", self.window)
 
@@ -93,6 +95,40 @@ class Menu:
         self.cut = CutAction("Cut", "CTRL+X", self.window)
         self.copy = CopyAction("Copy", "CTRL+C", self.window)
         self.paste = PasteAction("Paste", "CTRL+V", self.window)
+    
+
+    def setEditActions(self):
+        
+        self.undo = UndoAction("Undo", "CTRL+Z", self.window)
+        self.redo = RedoAction("Redo", "CTRL+Y", self.window)
+        self.cut = CutAction("Cut", "CTRL+X", self.window)
+        self.copy = CopyAction("Copy", "CTRL+C", self.window)
+        self.paste = PasteAction("Paste", "CTRL+V", self.window)
+    
+
+    def setViewActions(self):
+        
+        self.undo = ZoomInAction("Zoom In", "CTRL+=", self.window)
+        self.redo = ZoomOutAction("Zoom Out", "CTRL+-", self.window)
+        self.cut = ZoomRestoreAction("Restore Zoom", "CTRL+0", self.window)
+        self.copy = ToolsAction("Show Toolbar", self.window)
+        self.paste = StatusAction("Show Status Bar", self.window)
+
+
+    def setTextActions(self):
+        
+        self.font = FontAction("Font", self.window)
+        self.size = SizeAction("Size", self.window)
+        self.bold = BoldAction("Bold", "CTRL+B", self.window)
+        self.italic = ItalicAction("Italic", "CTRL+I", self.window)
+        self.underline = UnderlineAction("Underline", "CTRL+U", self.window)
+
+    
+    def setTextActions(self):
+        
+        self.left = LeftAction("Left", "CTRL+SHIFT+L", self.window)
+        self.center = CenterAction("Center", "CTRL+SHIFT+E", self.window)
+        self.right = RightAction("Right", "CTRL+SHIFT+R", self.window)
 
 
     def addActions(self, menu, actions):
